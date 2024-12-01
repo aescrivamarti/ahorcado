@@ -56,10 +56,12 @@ if ($_SESSION['letras_acertadas'] == $_SESSION['palabra']) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego del Ahorcado</title>
+    <!-- Importación de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(135deg, #4caf50, #81c784);
             color: #333;
             text-align: center;
             margin: 0;
@@ -80,7 +82,8 @@ if ($_SESSION['letras_acertadas'] == $_SESSION['palabra']) {
             background: white;
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease;
         }
 
         .message {
@@ -110,6 +113,11 @@ if ($_SESSION['letras_acertadas'] == $_SESSION['palabra']) {
             border-radius: 5px;
             display: inline-block;
             margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .play-again a:hover {
+            background-color: #3700b3;
         }
 
         p {
@@ -122,6 +130,7 @@ if ($_SESSION['letras_acertadas'] == $_SESSION['palabra']) {
             text-align: center;
             border: 1px solid #ddd;
             border-radius: 5px;
+            width: 200px;
         }
 
         button {
@@ -133,6 +142,7 @@ if ($_SESSION['letras_acertadas'] == $_SESSION['palabra']) {
             cursor: pointer;
             font-size: 16px;
             margin-top: 10px;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
@@ -144,10 +154,26 @@ if ($_SESSION['letras_acertadas'] == $_SESSION['palabra']) {
             color: #e53935;
         }
 
+        .word {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: #6200ea;
+        }
+
         .letras-usadas {
             margin-top: 20px;
             font-size: 14px;
             color: #555;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
